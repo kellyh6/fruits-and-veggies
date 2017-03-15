@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="foodApp">
     <head>
         <title>Fruit and Veggies</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
@@ -9,18 +9,51 @@
         <script src="js/fruits_and_veggies_test.js"></script>
         <script src="js/app.js"></script>
     </head>
-    <body>
+    <body ng-controller="foodController">
         <div class="container">
-            <h1>Fruit and Veggies</h1>
+            <h1 style="text-align: center"><em>Fruit and Veggies</em></h1>
             <div class="row">
-                <div class="col-sm-4">
-                    col 1
+                <div class="col-sm-4" style="text-align: center; font-weight: bolder; font-size: 2em; overflow-y: scroll;">
+                    Fruits
+                    <div ng-repeat="fruit in fruits track by $index" class="well">
+                        <div class="row">
+                            <div class="col-sm-4" style="text-align: center; margin-top: 10px; font-size: 0.6em !important;">
+                                <p>{{fruit}}</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <button ng-click="click('foods', $index, 'fruits')" type="button" class="btn btn-primary glyphicon glyphicon-chevron-right"></button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-4">
-                    col 2
+                <div class="col-sm-4" style="text-align: center; font-weight: bolder; font-size: 2em;  overflow-y: scroll;">
+                    Foods
+                    <div ng-repeat="food in foods track by $index" class="well">
+                        <div class="row" >
+                            <div class="col-sm-4">
+                                <button ng-click="click('fruits', $index, 'foods')" type="button" class="btn btn-primary glyphicon glyphicon-chevron-left"></button>
+                            </div>
+                            <div class="col-sm-4" style="text-align: center; margin-top: 10px; font-size: 0.6em !important;">
+                                <p>{{food}}</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <button ng-click="click('vegetables', $index, 'foods')" type="button" class="btn btn-primary glyphicon glyphicon-chevron-right"></button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-4">
-                    col 3
+                 <div class="col-sm-4" style="text-align: center; font-weight: bolder; font-size: 2em;  overflow-y: scroll;">
+                    Vegetables
+                    <div ng-repeat="vegetable in vegetables track by $index" class="well">
+                        <div class="row" >
+                            <div class="col-sm-4">
+                                <button ng-click="click('foods', $index, 'vegetables')" type="button" class="btn btn-primary glyphicon glyphicon-chevron-left"></button>
+                            </div>
+                            <div class="col-sm-4" style="text-align: center; margin-top: 10px; font-size: 0.6em !important;">
+                                <p>{{vegetable}}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
